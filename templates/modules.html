@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Modules{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Manage Modules</h1>
+<form id="moduleForm">
+    <div class="form-group">
+        <label for="moduleName">Module Name</label>
+        <input type="text" class="form-control" id="moduleName" required>
+    </div>
+    <div class="form-group">
+        <label for="moduleCode">JavaScript Code</label>
+        <textarea class="form-control" id="moduleCode" rows="10" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Module</button>
+</form>
+<h2 class="mt-5">Existing Modules</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="moduleTableBody">
+        <!-- داده‌ها در اینجا به‌روزرسانی می‌شوند -->
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/modules.js') }}"></script>
+{% endblock %}

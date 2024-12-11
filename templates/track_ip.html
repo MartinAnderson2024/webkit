@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Track IP{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1>Your IP has been logged</h1>
+            <p>Your IP address: {{ user_ip }}</p>
+            <p>Your Country: {{ country }}</p>
+            <p id="browser-info"></p>
+            <p id="os-info"></p>
+            <p id="country-info"></p>
+
+            <!-- فرم برای ارسال اطلاعات -->
+            <form id="trackIpForm">
+                <input type="hidden" id="userIp" name="userIp" value="{{ user_ip }}">
+                <input type="hidden" id="country" name="country" value="{{ country }}">
+                <input type="hidden" id="browserInfo" name="browserInfo">
+                <input type="hidden" id="osInfo" name="osInfo">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/track_ip.js') }}"></script>
+{% endblock %}

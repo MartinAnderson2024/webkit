@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Dashboard</h1>
+<h2 class="mt-5">Assign Modules to Logs</h2>
+
+<!-- پیام موفقیت -->
+<div class="alert alert-success" id="successMessage" style="display:none;">
+    Assignments saved successfully!
+</div>
+
+<!-- پیام خطا -->
+<div class="alert alert-danger" id="errorMessage" style="display:none;">
+    Duplicate log detected, not saved.
+</div>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>IP</th>
+            <th>User Agent</th>
+            <th>Browser</th>
+            <th>Platform</th>
+            <th>Country</th>
+            <th>Assign Modules</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="logTableBody">
+        <!-- داده‌ها در اینجا به‌روزرسانی می‌شوند -->
+    </tbody>
+</table>
+<button class="btn btn-primary" id="saveAssignments">Save Assignments</button>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
